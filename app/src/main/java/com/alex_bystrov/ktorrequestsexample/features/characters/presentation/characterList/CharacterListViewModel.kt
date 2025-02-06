@@ -23,7 +23,7 @@ class CharacterListViewModel(
 //            val response = getCharacterUseCase.getCharacter(1)
             val fetchAllCharacters = repository.fetchAllCharacters().map { it.mapToCharacterModel() }
 
-            viewState = viewState.copy(characters = emptyList())
+            viewState = viewState.copy(characters = fetchAllCharacters)
         }
     }
 }
