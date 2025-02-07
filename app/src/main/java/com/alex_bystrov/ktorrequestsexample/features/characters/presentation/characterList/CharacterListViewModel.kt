@@ -20,10 +20,9 @@ class CharacterListViewModel(
     private fun fetchData() {
         viewModelScope.launch {
             viewState = viewState.copy(isLoading = true)
-//            val response = getCharacterUseCase.getCharacter(1)
             val fetchAllCharacters = repository.fetchAllCharacters().map { it.mapToCharacterModel() }
 
-            viewState = viewState.copy(characters = fetchAllCharacters)
+            viewState = viewState.copy(characters = fetchAllCharacters, isLoading = false)
         }
     }
 }
